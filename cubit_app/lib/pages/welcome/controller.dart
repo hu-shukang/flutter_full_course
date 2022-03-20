@@ -1,3 +1,4 @@
+import 'package:cubit_app/common/route/app_route.dart';
 import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
@@ -13,6 +14,10 @@ class WelcomeController extends GetxController {
 
   void onPageChanged(int index) {
     _currentIndex.value = index;
+  }
+
+  void handleToHome() {
+    Get.offAndToNamed(AppRoute.home);
   }
 
   @override

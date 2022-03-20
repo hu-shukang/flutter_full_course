@@ -31,17 +31,21 @@ Text pageSubTitle({
   );
 }
 
-SizedBox contentText({
+Container contentText({
   required String text,
-  required double width,
+  double? width,
+  Color color = secondaryTextColor,
+  double size = 14,
+  EdgeInsets? padding,
 }) {
-  return SizedBox(
+  return Container(
     width: width,
+    padding: padding,
     child: Text(
       text,
-      style: const TextStyle(
-        color: secondaryTextColor,
-        fontSize: 14,
+      style: TextStyle(
+        color: color,
+        fontSize: size,
       ),
     ),
   );

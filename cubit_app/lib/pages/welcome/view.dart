@@ -59,8 +59,9 @@ class WelcomePage extends GetView<WelcomeController> {
                         width: 240,
                       ),
                       const SizedBox(height: 40),
-                      const ResponsiveButton(
+                      ResponsiveButton(
                         width: 100,
+                        onTap: controller.handleToHome,
                       ),
                     ],
                   ),
