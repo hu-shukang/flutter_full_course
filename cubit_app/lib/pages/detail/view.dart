@@ -1,5 +1,6 @@
 import 'package:cubit_app/common/styles/color.dart';
 import 'package:cubit_app/common/styles/text.dart';
+import 'package:cubit_app/common/widgets/app_bar.dart';
 import 'package:cubit_app/common/widgets/responsive_button.dart';
 import 'package:cubit_app/pages/detail/controller.dart';
 import 'package:flutter/material.dart';
@@ -8,34 +9,14 @@ import 'package:get/get.dart';
 class DetailPage extends GetView<DetailController> {
   const DetailPage({Key? key}) : super(key: key);
 
-  Widget _buildTopMenu() {
-    return Positioned(
-      left: 0,
-      top: 30,
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.menu),
-            color: Colors.white,
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildBackgroundImage(BuildContext context) {
-    return Positioned(
-      left: 0,
-      top: 0,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 350,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/img/mountain.jpeg'),
-            fit: BoxFit.cover,
-          ),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 300,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/img/mountain.jpeg'),
+          fit: BoxFit.cover,
         ),
       ),
     );
@@ -148,56 +129,52 @@ class DetailPage extends GetView<DetailController> {
           ),
         ),
         const SizedBox(width: 20),
-        ResponsiveButton(isResponsive: true, text: 'Book Trip Now', onTap: (){})
+        ResponsiveButton(isResponsive: true, text: 'Book Trip Now', onTap: () {})
       ],
     );
   }
 
   Widget _buildInfo(BuildContext context) {
-    return Positioned(
-      top: 320,
-      left: 0,
-      child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 450,
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildInfoTitle(),
+          const SizedBox(height: 5),
+          _buildInfoPosition(),
+          const SizedBox(height: 8),
+          _buildEvaluation(),
+          const SizedBox(height: 20),
+          pageTitle(
+            text: 'People',
+            size: 20,
           ),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildInfoTitle(),
-            const SizedBox(height: 5),
-            _buildInfoPosition(),
-            const SizedBox(height: 8),
-            _buildEvaluation(),
-            const SizedBox(height: 20),
-            pageTitle(
-              text: 'People',
-              size: 20,
-            ),
-            const SizedBox(height: 5),
-            contentText(text: 'Number of people in your group.'),
-            const SizedBox(height: 8),
-            _buildNumberGroup(),
-            const SizedBox(height: 20),
-            pageTitle(
-              text: 'Description',
-              size: 20,
-            ),
-            const SizedBox(height: 5),
-            contentText(
-                text:
-                    'Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.'),
-            const SizedBox(height: 20),
-            _buildBottomButton(context),
-          ],
-        ),
+          const SizedBox(height: 5),
+          contentText(text: 'Number of people in your group.'),
+          const SizedBox(height: 8),
+          _buildNumberGroup(),
+          const SizedBox(height: 20),
+          pageTitle(
+            text: 'Description',
+            size: 20,
+          ),
+          const SizedBox(height: 5),
+          contentText(
+              text:
+                  'Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.Yosemite National Park is located in central Sierra Nevada in the US state of California. It is located near the wild protected areas.'),
+          const SizedBox(height: 20),
+          _buildBottomButton(context),
+          const SizedBox(height: 60),
+        ],
       ),
     );
   }
@@ -205,18 +182,24 @@ class DetailPage extends GetView<DetailController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
-            children: [
-              _buildBackgroundImage(context),
-              _buildTopMenu(),
-              _buildInfo(context),
-            ],
+      body: Stack(
+        children: [
+          SingleChildScrollView(
+            controller: controller.scrollController,
+            child: Column(
+              children: [
+                _buildBackgroundImage(context),
+                _buildInfo(context),
+              ],
+            ),
           ),
-        ),
+          Obx(
+            () => Opacity(
+              opacity: controller.appBarAlpha,
+              child: appBar(context: context, title: 'Yosemite'),
+            ),
+          ),
+        ],
       ),
     );
   }
