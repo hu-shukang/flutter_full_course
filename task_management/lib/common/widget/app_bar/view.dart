@@ -14,7 +14,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: InkWell(
-        onTap: _appBarController.switchTheme,
+        onTap: () {
+          _appBarController.switchTheme();
+        },
         child: const Icon(
           Icons.nightlight_round,
           size: 20,
