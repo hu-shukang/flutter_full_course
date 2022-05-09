@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      initialRoute: AppRoute.detail,
+      initialRoute: AppRoute.initial,
       getPages: AppPage.pages,
     );
   }

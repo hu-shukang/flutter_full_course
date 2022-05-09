@@ -1,7 +1,7 @@
 class AppRoute {
   AppRoute._();
 
-  static const initial = welcome;
+  static const initial = detail;
 
   static const welcome = '/welcome';
   static const home = '/home';
