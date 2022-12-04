@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ticket/utils/app_styles.dart';
-import 'package:ticket/widgets/thick_container.dart';
 
-class FlightItem extends StatelessWidget {
-  const FlightItem({Key? key}) : super(key: key);
+import '../../../common/utils/app_styles.dart';
+import 'thick_container.dart';
+
+class TicketItem extends StatelessWidget {
+  const TicketItem({Key? key}) : super(key: key);
 
   Widget _halfCircular(bool isLeft) {
     BorderRadius borderRadius = isLeft ? const BorderRadius.only(
@@ -130,11 +131,11 @@ class FlightItem extends StatelessWidget {
         Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: Styles.orangeColor,
-            borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(21),
-              bottomRight: Radius.circular(21)
-            )
+              color: Styles.orangeColor,
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(21),
+                  bottomRight: Radius.circular(21)
+              )
           ),
           child: Column(
             children: [

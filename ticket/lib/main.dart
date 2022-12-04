@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:ticket/screens/bottom_bar.dart';
-import 'package:ticket/utils/app_styles.dart';
+import 'package:get/get.dart';
+
+import 'common/route/app_page.dart';
+import 'common/route/app_route.dart';
+import 'common/style/theme.dart';
+import 'common/utils/app_styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,13 +16,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: Styles.primaryColor,
-      ),
+    return GetMaterialApp(
+      title: 'TicketApp',
+      theme: AppTheme.light,
       debugShowCheckedModeBanner: false,
-      home: const BottomBar()
+      initialRoute: AppRoute.initial,
+      getPages: AppPage.pages,
     );
   }
 }
