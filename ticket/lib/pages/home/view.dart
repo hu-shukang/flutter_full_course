@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ticket/pages/home/controller.dart';
-import 'package:ticket/pages/home/widgets/ticket_list.dart';
+import 'package:ticket/pages/home/widgets/ticket_item.dart';
 
 import '../../common/utils/app_styles.dart';
 
@@ -76,7 +76,17 @@ class HomePage extends GetView<HomeController> {
                 ],
               )
           ),
-          const TicketList(),
+          const SizedBox(height: 15,),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: [
+                TicketItem(),
+                TicketItem(),
+              ],
+            ),
+          )
         ],
       ),
     );
