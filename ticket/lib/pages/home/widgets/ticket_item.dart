@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ticket/common/model/home.dart';
 
+import '../../../common/style/color.dart';
+import '../../../common/style/text.dart';
 import '../../../common/utils/app_layout.dart';
-import '../../../common/utils/app_styles.dart';
 import 'thick_container.dart';
 
 class TicketItem extends StatelessWidget {
-  const TicketItem({Key? key}) : super(key: key);
+  final TicketModel model;
+  const TicketItem({Key? key, required this.model}) : super(key: key);
 
   Widget _halfCircular(bool isLeft) {
     BorderRadius borderRadius = isLeft ? const BorderRadius.only(
@@ -20,7 +23,7 @@ class TicketItem extends StatelessWidget {
       width: 10,
       child: DecoratedBox(
         decoration: BoxDecoration(
-            color: Styles.bgColor,
+            color: AppColor.bgColor,
             borderRadius: borderRadius
         ),
       ),
@@ -62,7 +65,7 @@ class TicketItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text("NYC", style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                      Text(model.from.code, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                       const Spacer(),
                       const ThickContainer(),
                       Expanded(child: Stack(
@@ -89,7 +92,7 @@ class TicketItem extends StatelessWidget {
                       )),
                       const ThickContainer(),
                       const Spacer(),
-                      Text("LDN", style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                      Text(model.to.code, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                     ],
                   ),
                   const SizedBox(height: 3,),
@@ -98,12 +101,12 @@ class TicketItem extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 100,
-                        child: Text("New-York", style: Styles.headlineTextStyle4.copyWith(color: Colors.white),),
+                        child: Text(model.from.name, style: AppText.headlineTextStyle4.copyWith(color: Colors.white),),
                       ),
-                      Text("8H 30M", style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                      Text(model.flyingTime, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                       SizedBox(
                         width: 100,
-                        child: Text("London", textAlign: TextAlign.right, style: Styles.headlineTextStyle4.copyWith(color: Colors.white),),
+                        child: Text(model.to.name, textAlign: TextAlign.right, style: AppText.headlineTextStyle4.copyWith(color: Colors.white),),
                       ),
                     ],
                   )
@@ -112,7 +115,7 @@ class TicketItem extends StatelessWidget {
             ),
             /** the middle part of ticket */
             Container(
-              color: Styles.orangeColor,
+              color: AppColor.orangeColor,
               child: Column(
                 children: [
                   Row(
@@ -137,7 +140,7 @@ class TicketItem extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                  color: Styles.orangeColor,
+                  color: AppColor.orangeColor,
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(21),
                       bottomRight: Radius.circular(21)
@@ -150,12 +153,12 @@ class TicketItem extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 60,
-                        child: Text("1 MAY", style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                        child: Text(model.date, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                       ),
-                      Text("08:00 AM", style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                      Text(model.departureTime, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                       SizedBox(
                         width: 60,
-                        child: Text("23", textAlign: TextAlign.right, style: Styles.headlineTextStyle3.copyWith(color: Colors.white),),
+                        child: Text("${model.number}", textAlign: TextAlign.right, style: AppText.headlineTextStyle3.copyWith(color: Colors.white),),
                       )
                     ],
                   ),
@@ -165,12 +168,12 @@ class TicketItem extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 60,
-                        child: Text("Date", style: Styles.headlineTextStyle4.copyWith(color: Colors.white),),
+                        child: Text("Date", style: AppText.headlineTextStyle4.copyWith(color: Colors.white),),
                       ),
-                      Text("Departure time", style: Styles.headlineTextStyle4.copyWith(color: Colors.white),),
+                      Text("Departure time", style: AppText.headlineTextStyle4.copyWith(color: Colors.white),),
                       SizedBox(
                         width: 60,
-                        child: Text("Number", textAlign: TextAlign.right, style: Styles.headlineTextStyle4.copyWith(color: Colors.white),),
+                        child: Text("Number", textAlign: TextAlign.right, style: AppText.headlineTextStyle4.copyWith(color: Colors.white),),
                       )
                     ],
                   )

@@ -1,11 +1,13 @@
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:ticket/pages/home/controller.dart';
+import 'package:ticket/pages/home/widgets/article_header.dart';
+import 'package:ticket/pages/home/widgets/hotel_item.dart';
 import 'package:ticket/pages/home/widgets/ticket_item.dart';
 
-import '../../common/utils/app_styles.dart';
+import '../../common/style/color.dart';
+import '../../common/style/text.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -13,23 +15,29 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Styles.bgColor,
+      backgroundColor: AppColor.bgColor,
       body: ListView(
         children: [
           Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
-                  const SizedBox(height: 40,),
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Good morning", style: Styles.headlineTextStyle3,),
-                          const SizedBox(height: 5,),
-                          Text("Book Tickets", style: Styles.headlineTextStyle1,)
+                          Text(
+                            "Good morning",
+                            style: AppText.headlineTextStyle3,
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "Book Tickets",
+                            style: AppText.headlineTextStyle1,
+                          )
                         ],
                       ),
                       Container(
@@ -37,14 +45,12 @@ class HomePage extends GetView<HomeController> {
                         width: 50,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/img_1.png")
-                            )
-                        ),
+                            image: const DecorationImage(
+                                image: AssetImage("assets/images/img_1.png"))),
                       )
                     ],
                   ),
-                  const SizedBox(height: 25,),
+                  const SizedBox(height: 25),
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -53,43 +59,44 @@ class HomePage extends GetView<HomeController> {
                     ),
                     child: Row(
                       children: [
-                        Icon(FluentSystemIcons.ic_fluent_search_regular, color: Styles.iconColor,),
-                        const SizedBox(width: 6,),
-                        Text("Search", style: Styles.headlineTextStyle4,)
+                        Icon(
+                          FluentSystemIcons.ic_fluent_search_regular,
+                          color: AppColor.iconColor,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          "Search",
+                          style: AppText.headlineTextStyle4,
+                        )
                       ],
                     ),
                   ),
-                  const SizedBox(height: 40,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Upcoming Flights", style: Styles.headlineTextStyle2,),
-                      InkWell(
-                        child: Text("view all", style: Styles.regularTextStyle.copyWith(color: Styles.primaryColor),),
-                        onTap: () {
-                          print("You are tapped");
-                        },
-                      )
-
-                    ],
-                  )
                 ],
-              )
-          ),
-          const SizedBox(height: 15,),
+              )),
+          const SizedBox(height: 40),
+          ArticleHeader(model: controller.upcomingFlightAH),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             padding: const EdgeInsets.only(left: 20),
             child: Row(
-              children: [
-                TicketItem(),
-                TicketItem(),
-              ],
+              children: controller.tickets
+                  .map((ticket) => TicketItem(model: ticket))
+                  .toList(),
             ),
-          )
+          ),
+          const SizedBox(height: 15),
+          ArticleHeader(model: controller.hotelsAH),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.only(left: 20),
+            child: Row(
+              children: controller.hotels
+                  .map((hotel) => HotelItem(model: hotel))
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );
   }
-  
 }

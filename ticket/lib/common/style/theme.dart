@@ -8,7 +8,8 @@ class AppTheme {
     primaryColor: AppColor.primaryColor,
     scaffoldBackgroundColor: AppColor.bgColor,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      elevation: 10,
+      elevation: 0,
+      backgroundColor: AppColor.bgColor,
       unselectedLabelStyle: const TextStyle(fontSize: 12),
       selectedLabelStyle: const TextStyle(fontSize: 12),
       showSelectedLabels: false,

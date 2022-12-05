@@ -8,4 +8,5 @@ class AppColor {
   static Color iconColor = const Color(0xffbfc205);
   static Color selectedItemColor = Colors.blueGrey;
   static Color unselectedItemColor = const Color(0xFF526480);
+  static Color kakiColor = const Color(0xffd2bdb6);
 }

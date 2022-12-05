@@ -22,7 +22,7 @@ class MainController extends GetxController {
     _selectedIndex.value = index;
     pageController.animateToPage(
       index,
-      duration: const Duration(milliseconds: 20),
+      duration: const Duration(milliseconds: 1),
       curve: Curves.ease
     );
   }

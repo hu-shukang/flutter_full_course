@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'common/route/app_page.dart';
 import 'common/route/app_route.dart';
 import 'common/style/theme.dart';
-import 'common/utils/app_styles.dart';
 
 void main() {
   runApp(const MyApp());
