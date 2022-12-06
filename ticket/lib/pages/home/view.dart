@@ -95,6 +95,7 @@ class HomePage extends GetView<HomeController> {
                   .toList(),
             ),
           ),
+          const SizedBox(height: 15),
         ],
       ),
     );
