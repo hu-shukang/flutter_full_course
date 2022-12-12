@@ -4,6 +4,8 @@ import 'package:ticket/common/style/text.dart';
 import 'package:ticket/common/utils/app_layout.dart';
 import 'package:ticket/common/widgets/tabs.dart';
 import 'package:ticket/pages/search/widgets/address_input.dart';
+import 'package:ticket/pages/search/widgets/find_hotels.dart';
+import 'package:ticket/pages/search/widgets/find_tickets.dart';
 
 import '../../common/widgets/article_header.dart';
 import 'controller.dart';
@@ -24,22 +26,17 @@ class SearchPage extends GetView<SearchController> {
             style: AppText.headlineTextStyle1.copyWith(fontSize: 35),
           ),
           const SizedBox(height: 20),
-          // TicketSwitchBar(),
-          Tabs(titles: controller.tabTitles, onIndexChanged: controller.handleTabChange,),
-          const SizedBox(height: 25),
-          AddressInput(model: controller.departureTextInputModel),
+          Tabs(titles: controller.tabTitles, tabController: controller.tabController,),
           const SizedBox(height: 15),
-          AddressInput(model: controller.arrivalTextInputModel),
-          const SizedBox(height: 15),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
+          SizedBox(
+            height: 180,
+            child: TabBarView(
+                controller: controller.tabController,
+                children: [
+                  FindTickets(),
+                  FindHotels(),
+                ]
             ),
-            onPressed: () {},
-            child: const Text('Find tickets'),
           ),
           const SizedBox(height: 25),
           ArticleHeader(
