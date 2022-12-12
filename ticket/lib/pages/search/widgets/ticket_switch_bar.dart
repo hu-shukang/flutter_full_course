@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:ticket/pages/search/controller.dart';
 
 import '../../../common/style/color.dart';
-import '../../../common/utils/app_layout.dart';
 
 class TicketSwitchBar extends StatelessWidget {
   TicketSwitchBar({Key? key}) : super(key: key);
@@ -18,6 +17,7 @@ class TicketSwitchBar extends StatelessWidget {
         color: Colors.white,
       );
     }
+    return null;
   }
 
   @override

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:ticket/common/style/color.dart';
 import 'package:ticket/common/style/text.dart';
 import 'package:ticket/common/utils/app_layout.dart';
+import 'package:ticket/pages/search/widgets/address_input.dart';
 import 'package:ticket/pages/search/widgets/ticket_switch_bar.dart';
 
 import 'controller.dart';
@@ -23,6 +24,21 @@ class SearchPage extends GetView<SearchController> {
           ),
           const SizedBox(height: 20),
           TicketSwitchBar(),
+          const SizedBox(height: 25),
+          AddressInput(model: controller.departureTextInputModel),
+          const SizedBox(height: 15),
+          AddressInput(model: controller.arrivalTextInputModel),
+          const SizedBox(height: 15),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            onPressed: () {},
+            child: const Text('Find tickets'),
+          ),
         ],
       ),
     );
