@@ -2,7 +2,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ticket/pages/home/controller.dart';
-import 'package:ticket/pages/home/widgets/article_header.dart';
+import 'package:ticket/common/widgets/article_header.dart';
 import 'package:ticket/pages/home/widgets/hotel_item.dart';
 import 'package:ticket/pages/home/widgets/ticket_item.dart';
 

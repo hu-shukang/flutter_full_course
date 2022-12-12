@@ -5,13 +5,15 @@ import 'package:ticket/common/style/text.dart';
 
 class ArticleHeader extends StatelessWidget {
   final ArticleHeaderModel model;
+  final bool withHorizontalPadding;
 
-  const ArticleHeader({Key? key, required this.model}) : super(key: key);
+  const ArticleHeader({Key? key, required this.model, this.withHorizontalPadding = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double padding = withHorizontalPadding ? 20 : 0;
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 12),
+      padding: EdgeInsets.only(left: padding, right: padding, bottom: 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
