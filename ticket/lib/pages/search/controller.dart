@@ -6,7 +6,7 @@ import '../../common/model/search.dart';
 
 class SearchController extends GetxController {
   final ArticleHeaderModel upcomingFlightAH = ArticleHeaderModel(title: "Upcoming Flights", link: "");
-  final Iterable<MapEntry<int, String>> ticketSwitches = ["Airline tickets", "Hotels"].asMap().entries;
+  final List<String> tabTitles = ["Airline tickets", "Hotels"];
   final _currentSwitchIndex = 0.obs;
   int get currentSwitchIndex => _currentSwitchIndex.value;
   final _departureController = TextEditingController();
@@ -24,5 +24,9 @@ class SearchController extends GetxController {
 
   void handleSwitchChange(int index) {
     _currentSwitchIndex.value = index;
+  }
+
+  void handleTabChange(int index) {
+    print(index);
   }
 }
