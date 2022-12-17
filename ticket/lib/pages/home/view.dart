@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:ticket/pages/home/controller.dart';
 import 'package:ticket/common/widgets/article_header.dart';
 import 'package:ticket/pages/home/widgets/hotel_item.dart';
-import 'package:ticket/pages/home/widgets/ticket_item.dart';
+import 'package:ticket/common/widgets/ticket_item.dart';
 
 import '../../common/style/color.dart';
 import '../../common/style/text.dart';
@@ -80,7 +80,12 @@ class HomePage extends GetView<HomeController> {
             padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: controller.tickets
-                  .map((ticket) => TicketItem(model: ticket))
+                  .map(
+                    (ticket) => Padding(
+                      padding: const EdgeInsets.only(right: 16),
+                      child: TicketItem(model: ticket),
+                    ),
+                  )
                   .toList(),
             ),
           ),
