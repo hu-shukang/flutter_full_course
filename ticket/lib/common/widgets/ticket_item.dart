@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticket/common/model/home.dart';
 import 'package:ticket/common/widgets/airport_rounded.dart';
-import 'package:ticket/common/widgets/split_line.dart';
+import 'package:ticket/common/widgets/split_dash_line.dart';
 
 import '../style/color.dart';
 import '../style/text.dart';
@@ -83,15 +83,11 @@ class TicketItem extends StatelessWidget {
           /** the middle part of ticket */
           Container(
             color: AppColor.orangeColor,
-            child: Column(
+            child: Row(
               children: [
-                Row(
-                  children: [
-                    _halfCircular(true),
-                    const SplitLine(),
-                    _halfCircular(false),
-                  ],
-                )
+                _halfCircular(true),
+                const SplitDashLine(),
+                _halfCircular(false),
               ],
             ),
           ),

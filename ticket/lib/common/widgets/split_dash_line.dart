@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class SplitLine extends StatelessWidget {
+class SplitDashLine extends StatelessWidget {
   final Color color;
-  const SplitLine({Key? key, this.color = Colors.white}) : super(key: key);
+  const SplitDashLine({Key? key, this.color = Colors.white}) : super(key: key);
 
   Widget _line() {
     return SizedBox(
