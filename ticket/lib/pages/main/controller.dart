@@ -5,7 +5,7 @@ import '../home/view.dart';
 
 class MainController extends GetxController {
   late final PageController pageController;
-  final _selectedIndex = 2.obs;
+  final _selectedIndex = 3.obs;
   int get selectedIndex => _selectedIndex.value;
 
   @override
