@@ -21,10 +21,9 @@ class Status extends StatelessWidget {
             width: 18,
             child: CircleAvatar(
               backgroundColor: AppColor.primaryColor,
-              radius: 14,
               child: const Icon(
                 FluentSystemIcons.ic_fluent_shield_filled,
-                size: 14,
+                size: 13,
                 color: Colors.white,
               ),
             ),
